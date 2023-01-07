@@ -1,0 +1,86 @@
+\chapter{Equations}
+
+This chapter we will lock at how to write equations. Take a look at equation \ref{determinat}.
+
+\section{Integral}
+\begin{align}
+    &\int_{x=0}^3 x^2 + 3  \, dx\   \\
+    &\left[\frac{1}{3}x^3 + 3x\right]_{x=0}^3 \\
+    &\left[\frac{1}{3}3^3 + 3\cdot3\right] \\
+    &= \underline{\underline{18}}
+\end{align}
+
+\section{Subequations}
+\begin{subequations}
+\begin{align}
+    x&=Ax + Bu \\
+    y&=Cx + Du
+\end{align}
+\end{subequations}
+
+\section{Matrix}
+
+
+\begin{align}
+	\dot{\mathbf{x}} &= 
+	\begin{bmatrix}
+	1 & 2 \\
+    3 & 4
+	\end{bmatrix} \\
+     \text{det } \dot{\mathbf{x}} &= \text{det } \begin{bmatrix}
+       1 & 2 \\
+        3 & 4  
+     \end{bmatrix}\label{determinat}\\ 
+     &= 1\cdot4 - 2\cdot3 = \underline{\underline{-2}}
+\end{align}
+
+\subsection{Larger matrix}
+\begin{align}\label{AB matrix}
+	\dot{\mathbf{x}} = 
+	\begin{bmatrix}
+	\dot{p_1}\\
+	\dot{p_2}\\
+	\vdots\\
+	\dot{p_N}\\
+	\dot{q_1}\\
+	\dot{q_2}\\
+	\vdots\\
+	\dot{q_N}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+	0 & 0 & \ldots & 0 & -k_1 & 0 & \ldots & 0\\
+	0 & 0 & \ldots & 0 & k_1 & -k_1 & \ldots & 0\\
+	\vdots & \vdots &\ddots &\vdots &\vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & \ldots & 0 & 0 & 0 & \ldots & -k_1\\
+	k_2 & -k_2 & \ldots & 0 & -f & 0 & \ldots & 0\\
+	0 & k_2 & \ldots & 0 & 0 & -f & \ldots & 0\\
+	\vdots & \vdots & \ddots & \vdots &\vdots &\vdots & \ddots & \vdots \\
+	0 & 0 & \ldots & k_2 & 0 & 0 & \ldots & -f \\
+	\end{bmatrix}
+	\begin{bmatrix}
+	p_1\\p_2\\\vdots\\p_N\\q_1\\q_2\\ \vdots\\q_N
+	\end{bmatrix}\\
+	&+ \begin{bmatrix}
+	k_1 & 0\\ 0 & 0\\\vdots & \vdots\\ 0 & 0 \\ 0 & 0 \\ 0 & 0 \\\vdots & \vdots\\ 0 & -k_2
+	\end{bmatrix} 
+	\begin{bmatrix}
+	q_{in} \\ p_{out}
+	\end{bmatrix}
+\end{align}
+
+\section{With greek letters}
+\begin{align}
+	H(s) &= \frac{k_1\, k_2}{s^2 + d\,s + k_1\, k_2}\\
+	H(s) &= \frac{k_1\, k_2}{s^2 + 2 \zeta \omega_0 s + \omega_0^2}\\
+	\zeta &= \frac{d}{2\sqrt{k_1\, k_2}} \label{zeta 1}
+\end{align}
+
+\section{Laplace}
+\begin{align}
+	\mathcal{L}\{\dot{\mathbf{x}}\} &\Rightarrow s\mathbf{x}(s) = \mathbf{Ax}(s) + \mathbf{Bu}(s)\\
+	\mathbf{x}(s) &= (s\mathbb{I} - \mathbf{A})^{-1} \mathbf{Bu}s\\
+	\mathcal{L}\{\mathbf{y}\} &\Rightarrow \mathbf{y}(s) = \mathbf{Cx}(s) + \mathbf{Du}(s)\\
+	\mathbf{y}(s)  &= \mathbf{C} (s\mathbb{I} - \mathbf{A})^{-1} \mathbf{Bu}(s) + \mathbf{Du}(s)\\
+	\frac{\mathbf{y}}{\mathbf{u}}(s) &= \mathbf{H}(s) = \mathbf{C} (s\mathbb{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D}
+\end{align}

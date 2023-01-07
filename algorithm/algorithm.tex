@@ -1,0 +1,23 @@
+\chapter{Algorithm}
+Code can be added either written in \LaTeX{} or add the code from file.
+
+\section{Written in \LaTeX}
+\begin{lstlisting}[caption=MATLAB function Kalman filter,language=matlab,label=DKF algo]
+function x_hat = KalmanFilter(u,y,KalmanData)
+	persistent init A B C Q R P_ x_
+		if isempty(init)
+		init = 1; % Initialize the Kalman Filter
+		[A,B,C,x_,P_,Q,R] = deal(KalmanData.A, KalmanData.B, KalmanData.C, KalmanData.x, KalmanData.P, KalmanData.Q, KalmanData.R);
+		end
+		L = (P_*C')*pinv(C*P_*C' + R); % Kalman gain
+		x = x_ + L*(y-C*x_); % Update estimate with measurement y
+		P = (eye(22)-L*C)*P_*(eye(22)-L*C)' + L*R*L'; % Compute error covariance for updated estimate
+		x_ = A*x + B*u; % Project ahead
+		P_ = A*P*A' + Q; % Predict error covariance
+		x_hat = x;
+end
+\end{lstlisting}
+
+\newpage
+\section{From file}
+\lstinputlisting[caption=Python program from a .py file.,language=python,firstnumber=14]{algorithm/HelpingCode.py}

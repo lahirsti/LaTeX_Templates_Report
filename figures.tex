@@ -1,0 +1,30 @@
+\chapter{Figures}
+
+Adding figures is most likely necessary for a thesis.
+
+\section{One figure}
+\begin{figure}[h]
+    \centering
+    \caption{Tekna logo}
+    \includegraphics[width=0.8\textwidth]{hovedlogo.png}
+    \label{fig:TeknaLogo}
+\end{figure}
+
+\newpage
+\section{Sub figures}
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{hovedlogo.png}
+		\caption{Tekna logo 1}
+		\label{fig:TeknaLogo1}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{hovedlogo.png}
+		\caption{Tekna logo 2}
+        \label{fig:TeknaLogo2}
+	\end{subfigure}
+	\caption{Two Tekna logos next to each other.}
+    \label{fig:TeknaLogos}
+\end{figure}
